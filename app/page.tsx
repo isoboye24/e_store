@@ -1,14 +1,15 @@
 import FeaturedProducts from '@/components/home/FeaturedProducts';
 import Hero from '@/components/home/Hero';
-import React from 'react';
-
-const HomePage = () => {
+import LoadingContainer from '@/components/global/LoadingContainer';
+import { Suspense } from 'react';
+function HomePage() {
   return (
     <>
       <Hero />
-      <FeaturedProducts />
+      <Suspense fallback={<LoadingContainer />}>
+        <FeaturedProducts />
+      </Suspense>
     </>
   );
-};
-
+}
 export default HomePage;
